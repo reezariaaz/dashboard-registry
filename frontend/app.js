@@ -145,13 +145,7 @@ async function openDashboardModal(id = null) {
         </div>
         <div class="form-group">
             <label>Category *</label>
-            <select id="form-category">
-                <option value="">Select category</option>
-                <option value="Finance" ${dashboard && dashboard.category === 'Finance' ? 'selected' : ''}>Finance</option>
-                <option value="HR" ${dashboard && dashboard.category === 'HR' ? 'selected' : ''}>HR</option>
-                <option value="Operations" ${dashboard && dashboard.category === 'Operations' ? 'selected' : ''}>Operations</option>
-                <option value="Marketing" ${dashboard && dashboard.category === 'Marketing' ? 'selected' : ''}>Marketing</option>
-            </select>
+            <input type="text" id="form-category" placeholder="e.g. Finance, HR, Operations" value="${dashboard ? dashboard.category : ''}">
         </div>
         <div class="form-group">
             <label>Owner Name *</label>
