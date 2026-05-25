@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Registry</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <h1>Dashboard Registry</h1>
+        <div class="nav-links">
+            <button id="nav-dashboards" class="nav-btn active" onclick="showScreen('dashboards')">Dashboards</button>
+            <button id="nav-data-sources" class="nav-btn" onclick="showScreen('data-sources')">Data Sources</button>
+        </div>
+    </nav>
+
+    <!-- Dashboards Screen -->
+    <div id="screen-dashboards" class="screen">
+        <div class="screen-header">
+            <h2>Dashboards</h2>
+            <button class="btn-primary" onclick="openDashboardModal()">+ Add Dashboard</button>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="filters">
+            <input type="text" id="dashboard-search" placeholder="Search by name..." oninput="loadDashboards()">
+            <select id="dashboard-category" onchange="loadDashboards()">
+                <option value="">All Categories</option>
+                <option value="Finance">Finance</option>
+                <option value="HR">HR</option>
+                <option value="Operations">Operations</option>
+                <option value="Marketing">Marketing</option>
+            </select>
+            <select id="dashboard-status" onchange="loadDashboards()">
+                <option value="">All Statuses</option>
+                <option value="Up">Up</option>
+                <option value="Down">Down</option>
+                <option value="Unknown">Unknown</option>
+            </select>
+        </div>
+
+        <!-- Dashboards Table -->
+        <table id="dashboards-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Owner</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="dashboards-tbody">
+                <tr><td colspan="5">Loading...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Data Sources Screen -->
+    <div id="screen-data-sources" class="screen" style="display:none">
+        <div class="screen-header">
+            <h2>Data Sources</h2>
+            <button class="btn-primary" onclick="openDataSourceModal()">+ Add Data Source</button>
+        </div>
+
+        <!-- Search -->
+        <div class="filters">
+            <input type="text" id="datasource-search" placeholder="Search by name..." oninput="loadDataSources()">
+        </div>
+
+        <!-- Data Sources Table -->
+        <table id="datasources-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="datasources-tbody">
+                <tr><td colspan="4">Loading...</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Dashboard Modal -->
+    <div id="dashboard-modal" class="modal" style="display:none">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="dashboard-modal-title">Add Dashboard</h3>
+                <span class="close" onclick="closeModal('dashboard-modal')">&times;</span>
+            </div>
+            <div class="modal-body" id="dashboard-modal-body">
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Source Modal -->
+    <div id="datasource-modal" class="modal" style="display:none">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="datasource-modal-title">Add Data Source</h3>
+                <span class="close" onclick="closeModal('datasource-modal')">&times;</span>
+            </div>
+            <div class="modal-body" id="datasource-modal-body">
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
