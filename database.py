@@ -5,7 +5,7 @@ import sqlite3
 DATABASE = 'dashboard_registry.db'
 
 def get_db_connection():
-    """Create and return a connection to the database"""
+    """Create and return a connection to the  database"""
     conn = sqlite3.connect(DATABASE)
     
     # This makes rows behave like dictionaries
