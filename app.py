@@ -5,7 +5,7 @@ from database import init_db
 from routes.data_sources import data_sources_bp
 from routes.dashboards import dashboards_bp
 
-# Create the Flask application
+# Create the Flask  application 
 app = Flask(__name__)
 
 # Allow frontend to talk to the API
